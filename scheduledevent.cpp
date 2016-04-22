@@ -2,12 +2,17 @@
 
 ScheduledEvent::ScheduledEvent()
 {
-    m_name = "Test!";
+
+}
+
+ScheduledEvent::ScheduledEvent(const QString& name)
+{
+    eventName = name;
 }
 
 ScheduledEvent::ScheduledEvent(const ScheduledEvent &copy)
 {
-    this->m_name = copy.getName();
+    eventName = copy.getEventName();
 }
 
 ScheduledEvent::~ScheduledEvent()
@@ -15,7 +20,12 @@ ScheduledEvent::~ScheduledEvent()
 
 }
 
-QString ScheduledEvent::getName() const noexcept
+const QString& ScheduledEvent::getEventName() const noexcept
 {
-    return m_name;
+    return eventName;
+}
+
+void ScheduledEvent::setEventName(const QString &name)
+{
+    eventName = name;
 }

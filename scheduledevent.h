@@ -9,11 +9,13 @@ class ScheduledEvent
 {
 public:
     ScheduledEvent();
+    ScheduledEvent(const QString& name);
     ScheduledEvent(const ScheduledEvent &copy);
     ~ScheduledEvent();
-    QString getName() const noexcept;
+    const QString& getEventName() const noexcept;
+    void setEventName(const QString &name);
 private:
-    QString m_name;
+    QString eventName;
 };
 
 Q_DECLARE_METATYPE(ScheduledEvent)

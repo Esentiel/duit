@@ -15,10 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         duit.cpp \
     eventsmodel.cpp \
-    scheduledevent.cpp
+    scheduledevent.cpp \
+    addeditdialog.cpp
 
 HEADERS  += duit.h \
     eventsmodel.h \
-    scheduledevent.h
+    scheduledevent.h \
+    addeditdialog.h
 
-FORMS    += duit.ui
+FORMS    += duit.ui \
+    addeditdialog.ui

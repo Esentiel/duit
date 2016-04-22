@@ -31,7 +31,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTst">
@@ -40,7 +40,15 @@
     </property>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuEvent">
+    <property name="title">
+     <string>Event</string>
+    </property>
+    <addaction name="actionAddEvent"/>
+    <addaction name="actionEditEvent"/>
+   </widget>
    <addaction name="menuTst"/>
+   <addaction name="menuEvent"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -54,6 +62,16 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAddEvent">
+   <property name="text">
+    <string>Add Event</string>
+   </property>
+  </action>
+  <action name="actionEditEvent">
+   <property name="text">
+    <string>Edit Event</string>
    </property>
   </action>
  </widget>
