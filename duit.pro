@@ -7,14 +7,18 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+CONFIG += c++14
 TARGET = duit
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        duit.cpp
+        duit.cpp \
+    eventsmodel.cpp \
+    scheduledevent.cpp
 
-HEADERS  += duit.h
+HEADERS  += duit.h \
+    eventsmodel.h \
+    scheduledevent.h
 
 FORMS    += duit.ui

@@ -6,9 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    eventsModel = new EventsModel(0);
+    ui->eventsView->setModel(eventsModel);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete eventsModel;
 }

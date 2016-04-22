@@ -2,6 +2,7 @@
 #define DUIT_H
 
 #include <QMainWindow>
+#include "eventsmodel.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    EventsModel * eventsModel;
 };
 
 #endif // DUIT_H
