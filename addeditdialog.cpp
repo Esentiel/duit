@@ -32,3 +32,10 @@ const QString & AddEditDialog::getNameValue() const noexcept
 {
     return nameValue;
 }
+
+void AddEditDialog::setNameValue(const QString &name)
+{
+   nameValue = name;
+   ui->nameValue->setText(name);
+
+}

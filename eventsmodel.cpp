@@ -66,3 +66,16 @@ bool EventsModel::insertRows(int position, int rows, const QModelIndex &index)
     endInsertRows();
     return true;
 }
+
+bool EventsModel::removeRows(int position, int rows, const QModelIndex &index)
+{
+    Q_UNUSED(index);
+    beginRemoveRows(QModelIndex(), position, position + rows - 1);
+
+    for (int row = 0; row < rows; ++row) {
+        eventsList.removeAt(position);
+    }
+
+    endRemoveRows();
+    return true;
+}

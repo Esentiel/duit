@@ -15,6 +15,7 @@ public:
     explicit AddEditDialog(QWidget *parent = 0);
     ~AddEditDialog();
     const QString& getNameValue() const noexcept;
+    void setNameValue(const QString &name);
 
 private slots:
     void on_cancelButton_clicked();

@@ -46,6 +46,7 @@
     </property>
     <addaction name="actionAddEvent"/>
     <addaction name="actionEditEvent"/>
+    <addaction name="actionDeleteEvent"/>
    </widget>
    <addaction name="menuTst"/>
    <addaction name="menuEvent"/>
@@ -72,6 +73,11 @@
   <action name="actionEditEvent">
    <property name="text">
     <string>Edit Event</string>
+   </property>
+  </action>
+  <action name="actionDeleteEvent">
+   <property name="text">
+    <string>Delete Event</string>
    </property>
   </action>
  </widget>

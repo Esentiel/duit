@@ -18,6 +18,10 @@ public:
 
 private slots:
     void on_actionAddEvent_triggered();
+    void on_actionEditEvent_triggered();
+    void on_actionDeleteEvent_triggered();
+    void on_actionExit_triggered();
+    void on_eventsView_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;

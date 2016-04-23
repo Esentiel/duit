@@ -16,6 +16,7 @@ public:
     void setEventName(const QString &name);
 private:
     QString eventName;
+    qint32 repeatDuringDay;
 };
 
 Q_DECLARE_METATYPE(ScheduledEvent)

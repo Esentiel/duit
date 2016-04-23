@@ -13,6 +13,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
     void addEntry(const QString &name);
     bool insertRows(int position, int rows, const QModelIndex &index) override;
+    bool removeRows(int position, int rows, const QModelIndex &index) override;
 private:
     QList<ScheduledEvent> eventsList;
 };
