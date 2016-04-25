@@ -3,10 +3,7 @@
 EventsModel::EventsModel(QObject *parent):
     QAbstractListModel(parent)
 {
-    //test items
-    eventsList.push_back(ScheduledEvent("Test1"));
-    eventsList.push_back(ScheduledEvent("Test2"));
-    eventsList.push_back(ScheduledEvent("Test3"));
+
 }
 
 int EventsModel::rowCount(const QModelIndex &parent) const
@@ -47,11 +44,12 @@ bool EventsModel::setData(const QModelIndex &index, const QVariant &value, int r
    return false;
 }
 
-void EventsModel::addEntry(const QString &name)
+void EventsModel::addEntry(const QString &name, const QMap<QString, QVariant> &params)
 {
     insertRows(rowCount(), 1, QModelIndex());
     QModelIndex myIndex = index(rowCount()-1);
     setData(myIndex, QVariant(name), Qt::EditRole);
+    setEventParams(myIndex.row(), params);
 }
 
 const QMap<QString, QVariant> & EventsModel::getEventParams(int row) const noexcept

@@ -33,26 +33,29 @@ void MainWindow::on_actionAddEvent_triggered()
 
     if(dialogCode == QDialog::Accepted)
     {
-        eventsModel->addEntry(addDialogWindow.getNameValue());
+        eventsModel->addEntry(addDialogWindow.getNameValue(), addDialogWindow.getParams());
     }
 }
 
 void MainWindow::on_actionEditEvent_triggered()
 {
     QModelIndex currentIndex = ui->eventsView->currentIndex();
+    const int row = currentIndex.row();
     if (currentIndex.isValid())
     {
-        AddEditDialog addDialogWindow;
-        addDialogWindow.setWindowTitle("Edit "+eventsModel->data(currentIndex).toString());
-        addDialogWindow.setNameValue(eventsModel->data(currentIndex).toString());
-        addDialogWindow.setModal(true);
-        int dialogCode = addDialogWindow.exec();
+        AddEditDialog editDialogWindow;
+        editDialogWindow.setWindowTitle("Edit "+eventsModel->data(currentIndex).toString());
+        editDialogWindow.setNameValue(eventsModel->data(currentIndex).toString());
+        editDialogWindow.setParams(eventsModel->getEventParams(row));
+        editDialogWindow.setModal(true);
+        int dialogCode = editDialogWindow.exec();
 
         if(dialogCode == QDialog::Accepted)
         {
-            QString theName =  addDialogWindow.getNameValue();
-
+            QString theName =  editDialogWindow.getNameValue();
+            auto eventParams = editDialogWindow.getParams();
             eventsModel->setData(currentIndex,theName,Qt::EditRole);
+            eventsModel->setEventParams(row,eventParams);
         }
     }
 }

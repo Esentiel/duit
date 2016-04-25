@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         duit.cpp \
     eventsmodel.cpp \
     scheduledevent.cpp \
-    addeditdialog.cpp
+    addeditdialog.cpp \
+    eventhandler.cpp
 
 HEADERS  += duit.h \
     eventsmodel.h \
     scheduledevent.h \
-    addeditdialog.h
+    addeditdialog.h \
+    eventhandler.h
 
 FORMS    += duit.ui \
     addeditdialog.ui

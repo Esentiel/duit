@@ -11,7 +11,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     Qt::ItemFlags flags(const QModelIndex &index) const;
-    void addEntry(const QString &name);
+    void addEntry(const QString &name, const QMap<QString, QVariant> &params);
     bool insertRows(int position, int rows, const QModelIndex &index) override;
     bool removeRows(int position, int rows, const QModelIndex &index) override;
     const QMap<QString, QVariant> & getEventParams(int row) const noexcept;

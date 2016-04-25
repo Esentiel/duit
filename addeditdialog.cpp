@@ -30,7 +30,7 @@ void AddEditDialog::on_nameValue_editingFinished()
 
 void AddEditDialog::on_repeatValue_editingFinished()
 {
-    repeatValue = ui->repeatValue->text();
+    eventParams["repeatValue"] = ui->repeatValue->text();
 }
 
 const QString & AddEditDialog::getNameValue() const noexcept
@@ -44,14 +44,25 @@ void AddEditDialog::setNameValue(const QString &name)
    ui->nameValue->setText(name);
 }
 
-const QString & AddEditDialog::getRepeatValue() const noexcept
+QString AddEditDialog::getRepeatValue() const noexcept
 {
-    return repeatValue;
+    return eventParams["repeatValue"].toString();
 }
 
 void AddEditDialog::setRepeatValue(const QString &repeatVal)
 {
-   repeatValue = repeatVal;
+   eventParams["repeatValue"] = repeatVal;
    ui->repeatValue->setText(repeatVal);
 
+}
+
+const QMap<QString, QVariant>& AddEditDialog::getParams() const noexcept
+{
+    return eventParams;
+}
+
+void AddEditDialog::setParams(const QMap<QString, QVariant> &params)
+{
+    eventParams = params;
+    ui->repeatValue->setText(eventParams["repeatValue"].toString());
 }
