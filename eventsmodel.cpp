@@ -54,6 +54,18 @@ void EventsModel::addEntry(const QString &name)
     setData(myIndex, QVariant(name), Qt::EditRole);
 }
 
+const QMap<QString, QVariant> & EventsModel::getEventParams(int row) const noexcept
+{
+    return eventsList.at(row).getParams();
+}
+
+void EventsModel::setEventParams(int row, const QMap<QString, QVariant> & params)
+{
+    ScheduledEvent tempEvent = eventsList.at(row);
+    tempEvent.setParams(params);
+    eventsList.replace(row, tempEvent);
+}
+
 bool EventsModel::insertRows(int position, int rows, const QModelIndex &index)
 {
     Q_UNUSED(index);

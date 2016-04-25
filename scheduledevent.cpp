@@ -29,3 +29,13 @@ void ScheduledEvent::setEventName(const QString &name)
 {
     eventName = name;
 }
+
+const QMap<QString, QVariant> & ScheduledEvent::getParams() const noexcept
+{
+    return eventParameters;
+}
+
+void ScheduledEvent::setParams(const QMap<QString, QVariant> &params)
+{
+    eventParameters = params;
+}

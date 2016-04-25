@@ -1,6 +1,8 @@
 #ifndef SCHEDULEDEVENT_H
 #define SCHEDULEDEVENT_H
 #include <QString>
+#include <QMap>
+#include <QVariant>
 #include <QMetaType>
 
 
@@ -14,9 +16,11 @@ public:
     ~ScheduledEvent();
     const QString& getEventName() const noexcept;
     void setEventName(const QString &name);
+    const QMap<QString, QVariant> & getParams() const noexcept;
+    void setParams(const QMap<QString, QVariant> &params);
 private:
     QString eventName;
-    qint32 repeatDuringDay;
+    QMap<QString, QVariant> eventParameters;
 };
 
 Q_DECLARE_METATYPE(ScheduledEvent)

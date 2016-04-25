@@ -42,7 +42,7 @@
   <widget class="QLabel" name="nameLabel">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>80</y>
      <width>59</width>
      <height>14</height>
@@ -55,8 +55,31 @@
   <widget class="QLineEdit" name="nameValue">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>160</x>
      <y>70</y>
+     <width>113</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="repeatLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Repeat interval, mins</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="repeatValue">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>110</y>
      <width>113</width>
      <height>24</height>
     </rect>

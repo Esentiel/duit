@@ -14,8 +14,11 @@ public:
     void addEntry(const QString &name);
     bool insertRows(int position, int rows, const QModelIndex &index) override;
     bool removeRows(int position, int rows, const QModelIndex &index) override;
+    const QMap<QString, QVariant> & getEventParams(int row) const noexcept;
+    void setEventParams(int row, const QMap<QString, QVariant> & params);
 private:
     QList<ScheduledEvent> eventsList;
+    QMap<QString, QVariant> eventParams;
 };
 
 #endif // EVENTSMODEL_H
