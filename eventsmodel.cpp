@@ -9,14 +9,14 @@ EventsModel::EventsModel(QObject *parent):
 int EventsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return eventsList.size();
+    return static_cast<int>(eventsList.size());
 }
 
 QVariant EventsModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole)
     {
-        return eventsList.at(index.row()).getEventName();
+        return eventsList.at(index.row())->getEventName();
     }else
     {
         return QVariant();
@@ -34,8 +34,7 @@ Qt::ItemFlags EventsModel::flags(const QModelIndex &index) const
 bool EventsModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (role == Qt::EditRole && index.isValid()) {
-       int row = index.row();
-       eventsList.replace(row, ScheduledEvent(value.toString()));
+       eventsList.at(index.row())->setEventName(value.toString());
        emit(dataChanged(index, index));
 
        return true;
@@ -54,14 +53,12 @@ void EventsModel::addEntry(const QString &name, const QMap<QString, QVariant> &p
 
 const QMap<QString, QVariant> & EventsModel::getEventParams(int row) const noexcept
 {
-    return eventsList.at(row).getParams();
+    return eventsList.at(row)->getParams();
 }
 
 void EventsModel::setEventParams(int row, const QMap<QString, QVariant> & params)
 {
-    ScheduledEvent tempEvent = eventsList.at(row);
-    tempEvent.setParams(params);
-    eventsList.replace(row, tempEvent);
+    eventsList.at(row)->setParams(params);
 }
 
 bool EventsModel::insertRows(int position, int rows, const QModelIndex &index)
@@ -70,7 +67,7 @@ bool EventsModel::insertRows(int position, int rows, const QModelIndex &index)
     beginInsertRows(QModelIndex(), position, position + rows - 1);
 
     for (int row = 0; row < rows; ++row) {
-        eventsList.insert(position, ScheduledEvent());
+        eventsList.push_back(std::make_unique<ScheduledEvent>());
     }
 
     endInsertRows();
@@ -82,8 +79,8 @@ bool EventsModel::removeRows(int position, int rows, const QModelIndex &index)
     Q_UNUSED(index);
     beginRemoveRows(QModelIndex(), position, position + rows - 1);
 
-    for (int row = 0; row < rows; ++row) {
-        eventsList.removeAt(position);
+    for (int row = position; row < rows; ++row) {
+        eventsList.erase(eventsList.begin()+row);
     }
 
     endRemoveRows();

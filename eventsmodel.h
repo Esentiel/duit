@@ -17,7 +17,7 @@ public:
     const QMap<QString, QVariant> & getEventParams(int row) const noexcept;
     void setEventParams(int row, const QMap<QString, QVariant> & params);
 private:
-    QList<ScheduledEvent> eventsList;
+    std::vector<std::unique_ptr<ScheduledEvent>> eventsList;
     QMap<QString, QVariant> eventParams;
 };
 
