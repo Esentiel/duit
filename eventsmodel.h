@@ -18,7 +18,6 @@ public:
     void setEventParams(int row, const QMap<QString, QVariant> & params);
 private:
     std::vector<std::unique_ptr<ScheduledEvent>> eventsList;
-    QMap<QString, QVariant> eventParams;
 };
 
 #endif // EVENTSMODEL_H

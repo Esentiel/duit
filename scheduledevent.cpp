@@ -58,7 +58,7 @@ const QMap<QString, QVariant> & ScheduledEvent::getParams() const noexcept
 void ScheduledEvent::setParams(const QMap<QString, QVariant> &params)
 {
     eventParameters = params;
-    eventHandler = std::make_unique<EventHandler>(new EventHandler(eventName));
+    eventHandler = std::make_unique<EventHandler>(eventName);
 
     if (eventHandler && timer)
     {
