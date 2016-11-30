@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    this->setWindowTitle("Duit - Make every-day events scheduled");
     ui->setupUi(this);
     eventsModel = new EventsModel(0);
     ui->eventsView->setModel(eventsModel);
